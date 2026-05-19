@@ -68,8 +68,8 @@ That hits Engram's hybrid retrieval and returns a synthesized answer with citati
 
 Smoke-tested against live `api.lumetra.io`:
 
-- `add_message(HumanMessage("My name is Jacob..."))` → `add_message(AIMessage("Got it"))` → `add_message(HumanMessage("I run Lumetra..."))` → `messages` returns 3 entries with the right roles.
-- `query("What is the user's name and what company do they run?")` returns the synthesized answer "Jacob runs Lumetra." citing 2 retrieved memories.
+- A round of `add_message(HumanMessage(...))` + `add_message(AIMessage(...))` + `add_message(HumanMessage(...))` round-trips through Engram and `messages` returns all 3 entries with the right roles (`HumanMessage` / `AIMessage` reconstructed from the stored content).
+- A subsequent `query(...)` over the same bucket returns Engram's synthesized answer citing the retrieved memories from the explanation trace.
 
 ## License
 
