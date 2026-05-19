@@ -39,7 +39,7 @@ chain_with_memory = RunnableWithMessageHistory(
 
 result = chain_with_memory.invoke(
     {"input": "Remember that I prefer dark mode."},
-    config={"configurable": {"session_id": "jacob-42"}},
+    config={"configurable": {"session_id": "alex-42"}},
 )
 ```
 
@@ -50,7 +50,7 @@ Every message — both human and AI — becomes one Engram memory in the bucket.
 `EngramChatMessageHistory.messages` returns a recent-window view of the bucket (good for prompt-stuffing). For semantic search across the entire bucket's history, call `query()` directly:
 
 ```python
-history = EngramChatMessageHistory(bucket="user-jacob")
+history = EngramChatMessageHistory(bucket="user-alex")
 result = history.query("What does this user prefer for UI themes?")
 print(result["answer"])
 ```
